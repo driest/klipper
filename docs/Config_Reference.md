@@ -928,6 +928,14 @@ additional information.
 #   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
 #   Default value is CW-M3, most printers use an M3 screw and
 #   turning the knob clockwise decrease distance.
+#max_deviation: 0.1
+#   The maximum deviation any screw is allowed from the base screw.
+#   This effectively limits the amount of slope allowed for the bed.
+#   It is useful to determine if a pre-recorded bed mesh is applicable.
+#   The print will be paused if any screw exceeds this limit,
+#   giving the user a chance to adjust the screws and then continue
+#   with the RESUME command.
+#   Accepted values: any floating point number.
 ```
 
 ## [z_tilt]

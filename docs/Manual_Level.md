@@ -191,3 +191,10 @@ it has an X or Y offset) then note that adjusting the bed tilt will
 invalidate any previous probe calibration that was performed with a
 tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md)
 after the bed screws have been adjusted.
+
+The `max_deviation` config parameter is useful when a saved bed mesh is used,
+to ensure that the bed level has not drifted too far from where it was when
+the mesh was created. `SCREWS_TILT_CALCULATE` can be added to the custom start
+gcode of the slicer before the mesh is loaded. It will pause the print with a
+message asking the user to adjust the bed screws, after which it can be continued
+with the `RESUME` command.
