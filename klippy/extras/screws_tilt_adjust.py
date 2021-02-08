@@ -95,8 +95,8 @@ class ScrewsTiltAdjust:
                                          abs(full_turns), abs(minutes)))
         if self.max_diff and any((d > self.max_diff) for d in screw_diff):
             self.gcode.respond_info(
-                "bed level exceeds configured limits ({}mm)! Adjust screws and continue with RESUME.".format(
-                    self.max_diff))
+                "bed level exceeds configured limits ({}mm)! " \
+                "Adjust screws and continue with RESUME.".format(self.max_diff))
             self.gcode.run_script_from_command("PAUSE")
 
 def load_config(config):
