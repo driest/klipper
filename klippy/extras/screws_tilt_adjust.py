@@ -20,10 +20,14 @@ class ScrewsTiltAdjust:
         self.printer = config.get_printer()
         self.screws = []
         # Read config
-        try:
-            self.max_diff = float(config.get("max_deviation", None).strip())
-        except ValueError:
-            self.max_diff = None
+        self.max_diff = None
+        max_diff = config.get("max_deviation", None)
+        if max_diff:
+            try:
+                self.max_diff = float(max_diff.strip())
+            except ValueError:
+                config.error("screws_tilt_adjust: max_deviation {} invalid" \
+                             .format(max_diff))
         for i in range(99):
             prefix = "screw%d" % (i + 1,)
             if config.get(prefix, None) is None:
